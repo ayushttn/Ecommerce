@@ -24,7 +24,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .mvcMatchers(HttpMethod.POST, "/register/seller", "/register/customer","/resend-activationlink","/forgot-password", "/logout").permitAll()
                 .mvcMatchers(HttpMethod.PUT, "/confirm-account","/reset-password").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/allCustomers","/allSellers").hasRole("ADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/activateCustomer/{id}", "/deactivateCustomer/{id}", "/activateSeller/{id}", "/deactivateSeller/{id}").hasRole("ADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/activateCustomer/{id}", "/deactivateCustomer/{id}", "/activateSeller/{id}", "/deactivateSeller/{id}","/activateProduct/{id}", "/deactivateProduct/{id}").hasRole("ADMIN")
                 .mvcMatchers(HttpMethod.PUT,"/updateProfile", "/updateMyPassword", "/updateAddress/{id}").hasRole("CUSTOMER")
                 .mvcMatchers(HttpMethod.POST,"/addAddress").hasRole("CUSTOMER")
                 .mvcMatchers(HttpMethod.GET,"/viewMyProfile","/viewMyAddresses","/getCategoriesWithChildByCategoryId/{id}").hasRole("CUSTOMER")

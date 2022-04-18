@@ -68,4 +68,14 @@ public class ProductController {
             return ResponseHandler.generateResponse("Duplicate Product", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping("/activateProduct/{id}")
+    public void activateProduct(@PathVariable Long id){
+        productService.activateProduct(id);
+    }
+
+    @PutMapping("/deactivateProduct/{id}")
+    public void deactivateProduct(@PathVariable Long id){
+        productService.deactivateProduct(id);
+    }
 }

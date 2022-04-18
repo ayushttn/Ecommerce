@@ -134,4 +134,28 @@ public class ProductService {
             throw new UserNotFoundException("Seller not found");
         }
     }
+
+    //Admin
+
+    public void activateProduct(Long id){
+        Product product = productRepository.getById(id);
+        if(product.getActive() == false){
+            product.setActive(true);
+            productRepository.save(product);
+        }
+        else {
+            throw new ProductNotFoundException("Product is already active");
+        }
+    }
+
+    public void deactivateProduct(Long id){
+        Product product = productRepository.getById(id);
+        if(product.getActive() == true){
+            product.setActive(false);
+            productRepository.save(product);
+        }
+        else {
+            throw new ProductNotFoundException("Product is already inactive");
+        }
+    }
 }
