@@ -31,14 +31,14 @@ public class LogoutController{
         this.tokenStore = tokenStore;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logoutUser", method = RequestMethod.POST)
     public ResponseEntity<Object> logout(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null) {
             String tokenValue = authHeader.replace("Bearer", "").trim();
             OAuth2AccessToken accessToken = tokenStore.readAccessToken(tokenValue);
             tokenStore.removeAccessToken(accessToken);
-            return ResponseHandler.generateResponse("LogoutSuccessfull", HttpStatus.OK);
+            return ResponseHandler.generateResponse("Logout Successfull", HttpStatus.OK);
         }
         else {
             return ResponseHandler.generateResponse("Invalid token", HttpStatus.BAD_REQUEST);

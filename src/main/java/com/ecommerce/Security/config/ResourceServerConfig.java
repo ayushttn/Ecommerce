@@ -21,7 +21,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.httpBasic();
         http.authorizeRequests()
-                .mvcMatchers(HttpMethod.POST, "/register/seller", "/register/customer","/resend-activationlink","/forgot-password", "/logout").permitAll()
+                .mvcMatchers(HttpMethod.POST, "/register/seller", "/register/customer","/resend-activationlink","/forgot-password", "/logoutUser").permitAll()
                 .mvcMatchers(HttpMethod.PUT, "/confirm-account","/reset-password").permitAll()
                 .mvcMatchers(HttpMethod.GET,"/allCustomers","/allSellers").hasRole("ADMIN")
                 .mvcMatchers(HttpMethod.PUT, "/activateCustomer/{id}", "/deactivateCustomer/{id}", "/activateSeller/{id}", "/deactivateSeller/{id}","/activateProduct/{id}", "/deactivateProduct/{id}").hasRole("ADMIN")

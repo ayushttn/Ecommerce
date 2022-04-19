@@ -63,7 +63,7 @@ public class ProductService {
             product1.setCategory(categoryRepository.findCategoryById(categoryId));
             product1.setCancellable(product.getCancellable());
             product1.setReturnable(product.getReturnable());
-//            product1.setActive(true);
+            product1.setActive(false);
             product1.setDeleted(false);
             productRepository.save(product1);
         }

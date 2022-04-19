@@ -15,6 +15,5 @@ public class ResponseHandler {
         map.put("status",status.value());
         map.put("date", new Date());
         return new ResponseEntity<Object>(map,status);
-
     }
 }
